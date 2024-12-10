@@ -10,7 +10,12 @@ class User(AbstractUser):
         max_length=14,
         blank=False,
         unique=True,
-        validators=[RegexValidator(r"^\d{3}\.\d{3}\.\d{3}-\d{2}$")],
+        validators=[
+            RegexValidator(
+                r"^\d{3}\.\d{3}\.\d{3}-\d{2}$",
+                message=_("Enter a valid CPF in the format XXX.XXX.XXX-XX"),
+            )
+        ],
         db_column="cpf",
     )
 

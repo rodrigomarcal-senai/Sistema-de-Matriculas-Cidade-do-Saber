@@ -19,7 +19,7 @@ def register_user(request: HttpRequest):
             return redirect("/")
     else:
         form = RegisterUserForm()
-    
+
     context = {"form": form}
     return render(request, "registration/register.html", context)
 
@@ -32,6 +32,6 @@ def login_user(request: HttpRequest):
             return form.get_user()
     else:
         form = LoginUserForm()
-    
+
     context = {"form": form}
     return render(request, "registration/login.html", context)
